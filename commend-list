@@ -1,0 +1,51 @@
+
+Deploy ReactJs app on a ec2 server via pm2 ,
+
+1) First need to clone the project or deply via winscp 
+
+git clone https://github.com/adelicia-js/todo-cra.git
+
+2) cd into the web root directory of the project 
+
+3) First run commend "npm install " it will install all the packages and dependency 
+
+"npm install "
+
+4) Now run "npm run build"
+
+Once the "npm run build" cmd run successfully run this below commnd 
+
+5) npm install -g serve
+
+6) Now start app via pm2 process 
+
+pm2 start npm --name "my-react-app" -- start
+
+7) pm2 startup systemd  >> it will auto run the app whenever server reboot or restart 
+
+https://aws.amazon.com/blogs/aws/rotate-your-ssl-tls-certificates-now-amazon-rds-and-amazon-aurora-expire-in-2024/
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+file -s /dev/xvdf
+------------------------------------------------------------------------------------------------------------------------------------------
+file -s /dev/xvda1
+
+resize2fs /dev/xvda1
+
+growpart /dev/xvda 1
+
+
+
+mkfs -t xfs /dev/xvdf
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+lsblk
+
+
+sudo growpart /dev/nvme0n1 1
+
+sudo resize2fs /dev/nvme0n1p1
+
+
