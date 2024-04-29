@@ -48,4 +48,16 @@ sudo growpart /dev/nvme0n1 1
 
 sudo resize2fs /dev/nvme0n1p1
 
+----------------------------------------------------------------------------------------------------------------------
 
+CPU Stressing testing 
+
+Step 1. Install a the stress-ng tool to overwhelm the CPU.
+
+Step 2. Connect to the instance with SSH and run sudo apt update and sudo apt install -y stress to update the apt repository on Ubuntu.
+
+check version > stress --version 
+
+Step 4. After stress is installed, you can run sudo stress --cpu 2 --timeout 1h. This will use two of your CPU cores at 100% for one hour.
+
+Step 5. Open another terminal on that instance and use htop, a cross-platform interactive process viewer, to see the current state of the CPU and system memory
