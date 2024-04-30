@@ -61,3 +61,14 @@ check version > stress --version
 Step 4. After stress is installed, you can run sudo stress --cpu 2 --timeout 1h. This will use two of your CPU cores at 100% for one hour.
 
 Step 5. Open another terminal on that instance and use htop, a cross-platform interactive process viewer, to see the current state of the CPU and system memory
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+sudo apt install mysql-server
+
+sudo service mysql status
+
+sudo ss -tap | grep mysql
+
+You can edit the files in /etc/mysql/ to configure the basic settings – log file, port number, etc. For example, to configure MySQL to listen for connections from network hosts, in the file /etc/mysql/mysql.conf.d/mysqld.cnf, change the bind-address directive to the server’s IP address
+
