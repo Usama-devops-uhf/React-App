@@ -72,3 +72,18 @@ sudo ss -tap | grep mysql
 
 You can edit the files in /etc/mysql/ to configure the basic settings – log file, port number, etc. For example, to configure MySQL to listen for connections from network hosts, in the file /etc/mysql/mysql.conf.d/mysqld.cnf, change the bind-address directive to the server’s IP address
 
+
+----------------------------------------------------------------------------------------------------------------------------
+
+Git bitbucket Error Resolution : 
+
+Error : fatal: unable to access 'https://bitbucket.org/hyenoon/carlutions.git/': Could not resolve host: bitbucket.org
+
+Possiible solution run this 2 commends :
+
+1) sudo systemctl restart systemd-resolved
+2) sudo systemd-resolve --flush-caches
+
+--------------------------------------------------------------------------------------------------------------------------
+
+
