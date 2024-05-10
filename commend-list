@@ -86,4 +86,26 @@ Possiible solution run this 2 commends :
 
 --------------------------------------------------------------------------------------------------------------------------
 
+Changed PHP version from 7.3 to 8.1 for a specfic app .
+
+1) First need to disable current PHP version 
+
+ a2dismod php7.3
+ a2enmod php8.1
+
+systemctl restart apache2.services
+
+After that run this commend 
+sudo update-alternatives --set php /usr/bin/php8.1
+
+ a2dismod php8.1
+ a2enmod php7.3
+
+systemctl restart apache2.service
+
+ sudo update-alternatives --set php /usr/bin/php7.3
+systemctl restart apache2.services 
+
+--------------------------------------------------------------------------------------------------------------
+
 
