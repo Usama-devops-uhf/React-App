@@ -106,6 +106,14 @@ systemctl restart apache2.service
  sudo update-alternatives --set php /usr/bin/php7.3
 systemctl restart apache2.services 
 
+-------------------------------------------------------------------------------------------------------------
+
+root@ubuntu ~]# a2dismod php5.6
+
+root@ubuntu ~]# a2enmod php7.4
+
+root@ubuntu ~]# systemctl restart apache2
+
 --------------------------------------------------------------------------------------------------------------
 
 
