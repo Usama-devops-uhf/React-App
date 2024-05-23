@@ -115,5 +115,31 @@ root@ubuntu ~]# a2enmod php7.4
 root@ubuntu ~]# systemctl restart apache2
 
 --------------------------------------------------------------------------------------------------------------
+#!/bin/bash
 
+# Define variables
+BACKUP_DIR="/home/ubuntu/backups"
+WEB_DIR="/var/www/project/knls"
+DB_NAME="admindb"
+DB_USER="admin"
+DB_PASSWORD="saknfkdf"
+DATE=$(date +%F)
+
+# Ensure the backup directory exists
+mkdir -p "$BACKUP_DIR"
+
+# Backup website files
+tar -czf "$BACKUP_DIR/website_backup_$DATE.tar.gz" -C "$WEB_DIR" .
+
+# Backup MySQL database
+mysqldump -u "$DB_USER" -p"$DB_PASSWORD" "$DB_NAME" > "$BACKUP_DIR/db_backup_$DATE.sql"
+
+# Delete old backups (retain only the latest ones)
+find "$BACKUP_DIR" -type f -name "website_backup_*.tar.gz" ! -name "website_backup_$DATE.tar.gz" -exec rm {} +
+find "$BACKUP_DIR" -type f -name "db_backup_*.sql" ! -name "db_backup_$DATE.sql" -exec rm {} +
+
+echo "Backup completed for $DATE"
+
+
+------------------------------------------------------------------------------------------------------------------
 
