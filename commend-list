@@ -143,3 +143,7 @@ echo "Backup completed for $DATE"
 
 ------------------------------------------------------------------------------------------------------------------
 
+mysql -u root -p'admin@1234' databasename < databasefilename.sql 
+
+/etc/mysql/mysql.conf.d > under this file changed bind file from 127.0.0.1 to 0.0.0.0. 
+
