@@ -154,3 +154,22 @@ scp /path/to/local/file username@remote_host:/path/to/remote/directory
 scp /home/user/file.txt user@192.168.1.2:/home/user/
 -------------------------------------------------------------------------------------------------
 
+<VirtualHost *:443>
+    ServerName  crm.alhabibfunds.com
+    DocumentRoot /var/www/bahl_amc/salesforce_assets_managemet/salesforce_frontend_combined/htdocs/html/ #App Url root 
+    SetEnv APPLICATION_ENV "development"
+
+
+    SSLEngine on
+    SSLCertificateFile       /etc/ssl/crm.alhabibfunds.com/wildcard_alhabibfunds_com.crt
+    SSLCertificateKeyFile    /etc/ssl/crm.alhabibfunds.com/wildcard_alhabibfunds_com.key
+    SSLCertificateChainFile  /etc/ssl/crm.alhabibfunds.com/CACert.crt
+    <Directory "/var/www/bahl_amc/salesforce_assets_managemet/salesforce_frontend_combined/htdocs/html/">
+        DirectoryIndex index.php
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+
+-------------------------------------------------------------------------------------------------------------------------
