@@ -173,4 +173,18 @@ scp /home/user/file.txt user@192.168.1.2:/home/user/
 </VirtualHost>
 
 -----------------------------------------------------------------------------------------------------------------------
+<VirtualHost *:9999>
+    DocumentRoot "/var/www/salesforce/salesforce_frontend_combine/htdocs/api/"
+    SetEnv APPLICATION_ENV "development"
+    #SSLEngine on
+    #SSLCertificateFile /etc/apache2/digicert_certs/bdosales_meezanbank_com.crt
+    #SSLCertificateKeyFile /etc/apache2/digicert_certs/bdosales.meezanbank.com.key
+    #SSLCertificateChainFile /etc/apache2/digicert_certs/DigiCertCA.crt
+<Directory "/var/www/salesforce/salesforce_frontend_combine/htdocs/api/">
+        AllowOverride All
+        Options -Indexes
+        Options Indexes FollowSymLinks
+        Require all granted
+</Directory>
+</VirtualHost>
 
