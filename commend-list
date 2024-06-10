@@ -188,3 +188,14 @@ scp /home/user/file.txt user@192.168.1.2:/home/user/
 </Directory>
 </VirtualHost>
 
+---------------------------------------------------------------------------------------------------------------------------
+
+antivirus scanner to check uploaded files for malware
+
+1) sudo apt-get install clamav
+
+2) clamscan /path/to/uploads/$newFileName
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
