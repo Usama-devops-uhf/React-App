@@ -197,5 +197,48 @@ antivirus scanner to check uploaded files for malware
 2) clamscan /path/to/uploads/$newFileName
 -------------------------------------------------------------------------------------------------------------------------
 
+cp -r /path/to/web/files/* /path/to/clone/web/files/
+
+cp -r /home/ubuntu/reactapp/* /home/ubuntu/clone/
+
+mysqldump -u username -p database_name > /path/to/backup/database_name.sql #database backups .
+
+mysql -u username -p -e "CREATE DATABASE cloned_database_name;"  # create database 
+
+mysql -u username -p cloned_database_name < /path/to/backup/database_name.sql # Restore database 
+
+-------------------------------------------------------------------------------------------------------------------
+
+<VirtualHost *:80>                                                                                                                                           
+ServerName salesforce_bh.uhfdemo.com
+#ServerAlias www.example.com                                                                                                                                 
+
+DocumentRoot "/var/www/salesforce_bahl/bahl_salesforce/salesforce_frontend_combine/htdocs/html"
+<Directory "/var/www/salesforce_bahl/bahl_salesforce/salesforce_frontend_combine/htdocs/html">
+        DirectoryIndex index.php
+        AllowOverride All
+        Order allow,deny
+      Allow from all
+    </Directory>
+</VirtualHost>
+
+
+<VirtualHost *:80>
+ServerName salesforce_bhapi.uhfdemo.com
+
+DocumentRoot "/var/www/salesforce_bahl/bahl_salesforce/salesforce_frontend_combine/htdocs/api/public/"
+
+SetEnv APPLICATION_ENV "development"
+    <Directory "/var/www/salesforce_bahl/bahl_salesforce/salesforce_frontend_combine/htdocs/api/public/">
+        DirectoryIndex index.php
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+
+
+
+
 
 
