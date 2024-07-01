@@ -237,6 +237,27 @@ SetEnv APPLICATION_ENV "development"
     </Directory>
 </VirtualHost>
 
+-------------------------------------------------------------------------------------------------------------
+#!/bin/sh
+
+REPOS="$1"
+TXN="$2"
+
+SVNLOOK=/usr/bin/svnlook
+
+# Check for .xls and image files
+FILES=$($SVNLOOK changed -t "$TXN" "$REPOS" | grep -E '\.(xls|xlsm|jpg|jpeg|png|gif)$')
+
+if [ -n "$FILES" ]; then
+  echo "Committing .xls or image files is not allowed." 1>&2
+  exit 1
+fi
+
+exit 0
+------------------------------------------------------------------------------------------------------------------
+
+
+
 
 
 
