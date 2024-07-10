@@ -256,6 +256,17 @@ fi
 exit 0
 ------------------------------------------------------------------------------------------------------------------
 
+--------------------------------------SVN COMMEND-----------------------------------------------------------------
+
+svn checkout <http://example-subversion-server.com/repos/exampl_project/>
+
+svn checkout <http://example-subversion-server.com/repos/exampl_project/trunk/example_file.txt> <target_local_directory>
+
+svn checkout http://example-subversion-server.com/repos/exampl_project/branches/new-branch-name
+
+svn update
+
+
 
 
 
