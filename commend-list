@@ -266,6 +266,21 @@ svn checkout http://example-subversion-server.com/repos/exampl_project/branches/
 
 svn update
 
+-------------------------------------------------------------------------------------------------------------------------------------
+ Command to upgrade apache version from 2.4.52 to Server version: Apache/2.4.62 (Ubuntu)
+
+First take the backup of /etc/apache2 , directory 
+
+ sudo cp -r /etc/apache2 /etc/apache2_backup
+  sudo apt update
+  sudo apt upgrade -y
+ apache2 -v
+ sudo add-apt-repository ppa:ondrej/apache2
+  sudo apt update
+  sudo apt upgrade apache2 -y
+  apache2 -v
+
+
 
 
 
